@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/Users/shenyuan/Desktop/github/Finite_Element_Method_cplusplus/test/test.cpp
+iostream
+-
+possion_data_1d.h
+-
+Eigen/dense
+-
+
