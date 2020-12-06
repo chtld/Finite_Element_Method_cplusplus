@@ -14,6 +14,7 @@ public:
     ~possion_data_1d();
     static double coefficient_function(double x);
     static double exact_solution_function(double x);
+    static double exact_solution_function_grad(double x);
     static double right_hand_side_function(double x);
     static double dirichlet_function(double x);
     static double neumann_function(double x);
@@ -34,6 +35,12 @@ possion_data_1d::coefficient_function(double x){
 inline double 
 possion_data_1d::exact_solution_function(double x){
     double result = x * cos(x);
+    return result;
+}
+
+inline double 
+possion_data_1d::exact_solution_function_grad(double x){
+    double result = cos(x) - x * sin(x);
     return result;
 }
 

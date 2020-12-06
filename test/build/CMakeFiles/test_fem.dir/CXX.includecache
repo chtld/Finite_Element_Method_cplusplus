@@ -13,6 +13,20 @@ mesh.h
 -
 finite_element.h
 -
+gauss_formula.h
+-
+local_basis_function.h
+-
+
+../../src/error_compute.h
+Eigen/Dense
+-
+gauss_formula.h
+-
+local_basis_function.h
+-
+cmath
+-
 
 ../../src/finite_element.h
 mesh.h
@@ -21,6 +35,10 @@ string
 -
 Eigen/Dense
 -
+
+../../src/gauss_formula.h
+
+../../src/local_basis_function.h
 
 ../../src/mesh.h
 Eigen/Dense
@@ -34,6 +52,8 @@ finite_element.h
 assemble.h
 -
 Eigen/Dense
+-
+error_compute.h
 -
 
 .././possion_data_1d.h
@@ -50,6 +70,8 @@ Eigen/Dense
 ../src/mesh.h
 -
 ../src/possion_solver_1d.h
+-
+cmath
 -
 
 /usr/include/eigen3/Eigen/Cholesky

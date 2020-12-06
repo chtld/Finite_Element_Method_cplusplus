@@ -5,6 +5,7 @@
 #include<finite_element.h>
 #include<assemble.h>
 #include<Eigen/Dense>
+#include<error_compute.h>
 
 using namespace Eigen;
 
@@ -25,19 +26,24 @@ void possion_solver_1d(possion_data_1d pde, mesh msh, int basis_type, int gauss_
     // cout << b << endl;
     // Todo 边界条件处理
     treat_dirichlet_boundary_condition(A, b, fe, pde.dirichlet_function);
-    cout << A << endl << b << endl;
+    // cout << A << endl << b << endl;
     // Todo 求解线性方程组
     VectorXd x = A.lu().solve(b);
-    cout << x << endl;
+    // cout << x << endl;
     // x = A.ldlt().solve(b);
     // cout << x << endl;
     // Todo 误差计算
     VectorXd exact_solution = compute_exact_solution(pde.exact_solution_function, fe.Pb);
-    cout << exact_solution-x << endl;
-    double l2_error = compute_Hs_error(pde.exact_solution_function, fe.Pb);
+    // cout << exact_solution-x << endl;
+    double l2_error = compute_Hs_error(pde.exact_solution_function, x, msh, fe, basis_type, 0, gauss_type);
     // Todo 输出结果到文件
+    double h1_error = compute_Hs_error(pde.exact_solution_function_grad, x, msh, fe, basis_type, 1, gauss_type);
+    cout << l2_error << "   " << h1_error << endl;
 
 }
+
+
+
 
 VectorXd compute_exact_solution(double (*exact)(double), MatrixXd Pb){
     VectorXd exact_solution = VectorXd::Zero(Pb.cols());

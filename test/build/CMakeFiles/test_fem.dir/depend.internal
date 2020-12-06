@@ -3,7 +3,10 @@
 
 CMakeFiles/test_fem.dir/test.cpp.o
  ../../src/assemble.h
+ ../../src/error_compute.h
  ../../src/finite_element.h
+ ../../src/gauss_formula.h
+ ../../src/local_basis_function.h
  ../../src/mesh.h
  ../../src/possion_solver_1d.h
  .././possion_data_1d.h
